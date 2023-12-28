@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Normalize Css -->
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+
+		<!-- Estilo da Página -->
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<!-- HTML5Shiv -->
+		<!--[if lt IE 9]>
+	        	<script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      	<![endif]-->
+
+		<!-- FaviCon -->
+		<link rel="icon" href="img/">
+
+		<!-- Titulo da Página -->
+		<title>Mata Mosquito</title>
+	</head>
+
+	<body onresize="tamanhoTela()">
+
+		<main><!-- Inicio do Main -->
+			<section id="tela_entrada"><!-- Inicio da Tela de Entrada -->
+				<img src="img/game.png">
+
+				<select id="Selecao" onchange="Dificuldade()">
+					<option selected>Selecione Uma Dificuldade</option>
+					<option value="easy">Facíl</option>
+					<option value="normal">Normal</option>
+					<option value="hard">Dificil</option>
+				</select>
+				<br>
+				<button onclick="Jogar()">Jogar Agora!</button>
+			</section><!-- Fim da Tela de Entrada -->
+
+			<section id="tela_jogo"><!-- Inicio da Tela do Jogo -->
+				<img onclick="morto()" id="mosquito" src="img/mosca.png">
+			</section><!-- Fim da Tela do Jogo -->
+
+			<section id="tela_secundaria"><!-- Inicio da tela Derrota -->
+				<img id="tituloImagem" src="img/game_over.png">
+				<button class="botaoReinicia">Reiniciar</button> 
+				<button class="botaoReinicia">Sair do Jogo</button>
+			</section><!-- Fim da Tela Derrota -->
+		</main><!-- Fim do Main -->
+
+		<footer id="rodape"><!-- Inicio do Rodapé -->
+			<div id="amostradores">
+				<img class="coracao" src="img/coracao_cheio.png">
+				<img class="coracao" src="img/coracao_cheio.png">
+				<img class="coracao" src="img/coracao_cheio.png">
+				<h5>
+					Tempo Restante: NaN
+				</h5>
+			</div>
+		</footer><!-- Fim do Rodapé -->
+		<!-- Script da Página -->
+		<script type="text/javascript" src="js/script.js"></script>
+	</body>
+</html>
