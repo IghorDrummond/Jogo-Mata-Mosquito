@@ -25,10 +25,10 @@ var TelaEspaco = [0, 0]
 var validaGame = true
 //Funções
 var apresentaTela = function(final){
+
 	//Desliga a Tela do Jogo
 	telaJogar.style.display = 'none'
 	amostrador.style.display = 'none'
-	somFundo[0].muted = true
 
 	//Define o Titulo em Imagem
 	switch(final){
@@ -70,6 +70,7 @@ function Dificuldade(){
 }
 
 function Jogar(){
+	var interval = null
 
 	if(Modo != '' && Modo != 'Selecione Uma Dificuldade'){
 		//Desliga a Tela de Entrada em Estilo Animado
@@ -77,7 +78,7 @@ function Jogar(){
 		//Ativa Musica do Jogo de Fundo
 		somFundo[0].play()
 		somFundo[0].loop = true
-		
+
 		//Desativa a Tela de Entrada
 		setTimeout(function(){
 			telaEntrada.style.display = 'none'
@@ -88,7 +89,7 @@ function Jogar(){
 		amostrador.style.display = 'block'
 
 		//Entra na Logica do Jogo	
-		setInterval(function(){
+		interval = setInterval(function(){
 			//Verifica se a Mosca foi Morta
 			if(validaGame == false){
 				coracao[kill].src = 'img/coracao_vazio.png'				
@@ -123,12 +124,12 @@ function Jogar(){
 			textoTempo[0].innerHTML = 'Tempo Restante: ' + Tempo.toString()
 
 			if(Tempo === 0 && kill <= 1){
-				clearInterval()//Saí da Logica
 				apresentaTela('V')
+				clearInterval(interval)//Saí da Logica
 			}
 			if(Tempo >= 0 && kill == 3){
-				clearInterval()//Saí da Logica
 				apresentaTela('D');
+				clearInterval(interval)//Saí da Logica
 			}
 
 			//Decrementa o Tempo 
@@ -161,3 +162,14 @@ function morto(){
 	mosquito.src = 'img/sangue.png'
 }
 
+function operacao(opc){
+
+	switch(opc){
+		case 'R':
+			window.location.reload()
+			break
+		case 'S':
+			window.close()
+			break	
+	}
+}
