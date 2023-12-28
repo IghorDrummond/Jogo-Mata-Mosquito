@@ -10,7 +10,7 @@ var telaSecundaria = document.getElementById('tela_secundaria')
 var coracao = document.getElementsByClassName('coracao')
 var tituloImage = document.getElementById('tituloImagem')
 //Objetos
-var somFundo = new Audio('audio/musicbg.mp3')
+var somFundo = [new Audio('audio/musicbg.mp3'), new Audio('audio/splash.mp3')]
 //String
 var Modo = ''
 //Numerico
@@ -73,9 +73,7 @@ function Jogar(){
 		//Desliga a Tela de Entrada em Estilo Animado
 		telaEntrada.style.animation = 'desligandoTela 1s'
 		//Ativa Musica do Jogo de Fundo
-		somFundo.play()
-		//Deixa com o Loop Ativado
-		somFundo.loop
+		somFundo[0].play()
 		//Desativa a Tela de Entrada
 		setTimeout(function(){
 			telaEntrada.style.display = 'none'
@@ -154,7 +152,8 @@ function morto(){
 	//Valida a Morte do Mosquito para não perde coração
 	validaGame = true
 
-	//Após apertar em cima do Mosquito, sangue aparecerá 
+	//Após apertar em cima do Mosquito, sangue aparecerá e emitirá o som
+	somFundo[1].play()
 	mosquito.src = 'img/sangue.png'
 }
 
