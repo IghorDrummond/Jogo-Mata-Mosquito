@@ -28,6 +28,8 @@ var apresentaTela = function(final){
 	//Desliga a Tela do Jogo
 	telaJogar.style.display = 'none'
 	amostrador.style.display = 'none'
+	somFundo[0].muted = true
+
 	//Define o Titulo em Imagem
 	switch(final){
 		case 'V':
@@ -74,6 +76,8 @@ function Jogar(){
 		telaEntrada.style.animation = 'desligandoTela 1s'
 		//Ativa Musica do Jogo de Fundo
 		somFundo[0].play()
+		somFundo[0].loop = true
+		
 		//Desativa a Tela de Entrada
 		setTimeout(function(){
 			telaEntrada.style.display = 'none'
