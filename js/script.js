@@ -88,9 +88,6 @@ function Jogar(){
 	var interval = null
 
 	if(Modo != '' && Modo != 'Selecione Uma Dificuldade'){
-		//Adiciona o Tempo para a Tag P
-		textoAmos[0].innerHTML = 'Tempo Restante: ' + Tempo.toString()
-
 		//Desliga a Tela de Entrada em Estilo Animado
 		telaEntrada.style.animation = 'desligandoTela 1s'
 		//Ativa Musica do Jogo de Fundo
@@ -108,6 +105,9 @@ function Jogar(){
 
 		//Entra na Logica do Jogo	
 		interval = setInterval(function(){
+			//Adiciona o Tempo para a Tag P
+			textoAmos[0].innerHTML = 'Tempo Restante: ' + Tempo.toString()
+			
 			//Verifica se a Mosca foi Morta
 			if(validaGame == false){
 				coracao[kill].src = 'img/coracao_vazio.png'				
