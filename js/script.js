@@ -5,7 +5,7 @@ var telaJogar = document.getElementById('tela_jogo')
 var telaEntrada = document.getElementById('tela_entrada')
 var mosquito = document.getElementById('mosquito')
 var amostrador = document.getElementById('rodape')
-var textoTempo = document.getElementsByTagName('h5')
+var textoAmos = document.getElementsByTagName('h5')
 var telaSecundaria = document.getElementById('tela_secundaria')
 var coracao = document.getElementsByClassName('coracao')
 var tituloImage = document.getElementById('tituloImagem')
@@ -19,12 +19,14 @@ var altura = 0
 var largura = 0
 var velocidade = 0
 var kill = 0
+var score = -1
 //Array
 var TelaEspaco = [0, 0]
 //Booleana
 var validaGame = true
 //Funções Anônimas
 var apresentaTela = function(final){
+	var textoScore = document.getElementById('Score')
 
 	//Desliga a Tela do Jogo
 	telaJogar.style.display = 'none'
@@ -39,7 +41,8 @@ var apresentaTela = function(final){
 			tituloImage.src = 'img/game_over.png'
 			break
 	}
-
+	//Adiciona o Score na Tela Final
+	textoScore.innerHTML = 'Seu Score: ' + score.toString()
 	//Ativa Tela Secundaria com o Titulo Desejado!
 	telaSecundaria.style.display = 'block'	
 }
@@ -85,6 +88,9 @@ function Jogar(){
 	var interval = null
 
 	if(Modo != '' && Modo != 'Selecione Uma Dificuldade'){
+		//Adiciona o Tempo para a Tag P
+		textoAmos[0].innerHTML = 'Tempo Restante: ' + Tempo.toString()
+
 		//Desliga a Tela de Entrada em Estilo Animado
 		telaEntrada.style.animation = 'desligandoTela 1s'
 		//Ativa Musica do Jogo de Fundo
@@ -106,6 +112,9 @@ function Jogar(){
 			if(validaGame == false){
 				coracao[kill].src = 'img/coracao_vazio.png'				
 				kill += 1//Caso a Mosca não for morta, apaga um coração				
+			}else{
+				score += 1//Adiciona pontos a cada morte efetuada
+				textoAmos[1].innerHTML = 'Seu Score: ' + score.toString()//Apresenta seu Score
 			}
 
 			//Reseta Valida Game
@@ -126,14 +135,11 @@ function Jogar(){
 				altura *= -1
 			}	
 
-
 			//Posiciona o Mosquito em um canto da tela aleatorio De acordo com o tamanho da tela
 			mosquito.style.top = altura + 'px'
 			mosquito.style.left = largura + 'px'
+			//Exibe o Mosquito
 			mosquito.style.display = 'block'
-
-			//Adiciona o Tempo para a Tag P
-			textoTempo[0].innerHTML = 'Tempo Restante: ' + Tempo.toString()
 
 			if(Tempo === 0 && kill <= 1){
 				apresentaTela('V')

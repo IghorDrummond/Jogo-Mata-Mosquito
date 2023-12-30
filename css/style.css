@@ -8,9 +8,16 @@ body{
 	background: #f0f0f0 url('../img/bg.jpg') no-repeat fixed;
 	background-size: cover;
 	cursor: url('../img/mata_mosca.png'), auto;
+	font-family: Super Reduce;
 }
 main{
 	height: 95%;
+}
+
+/* Fonte Customizada */
+@font-face {
+	font-family: 'Super Reduce';
+	src: url('../fonts/Super-Reduce.woff');
 }
 
 /* Tela Principal */
@@ -18,7 +25,8 @@ main{
 	height: 100%;
 	text-align: center;	
 	padding-top: 50px;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 #tela_entrada img{
 	width: 30%;
@@ -62,8 +70,7 @@ main{
 }
 #amostradores {
 	width: 20%;
-	height: auto
-	background-color: rgba(255, 255, 255, 0.5);
+	height: auto;
 	font-weight: bold;
 }
 #amostradores img{
@@ -80,8 +87,12 @@ main{
 	width: 100%;
 	height: 90vh;
 	padding-top: 50px;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 	display: none;
+	text-align: center;
+	color: white;
+	font-weight: bold;
 }
 #tela_secundaria img{
 	width: 30%;
@@ -107,7 +118,8 @@ footer{
 	width: 100%;
 	height: 10vh;
 	display: none;
-	border-image: url('../img/borda.png');
+	-o-border-image: url('../img/borda.png');
+	   border-image: url('../img/borda.png');
    	border-image-slice:124;
    	border-image-repeat: round	
 }
@@ -257,6 +269,15 @@ footer{
 	}
 }
 
+@-webkit-keyframes desligandoTela{
+	0%{
+		opacity: 1.0;
+	}
+	100%{
+		opacity: 0;
+	}
+}
+
 @keyframes desligandoTela{
 	0%{
 		opacity: 1.0;
@@ -322,9 +343,4 @@ footer{
 	#amostradores img{
 		width: 10%;
 	}			
-}
-
-/* Dispositivos extra large (desktops grandes com 1200px ou mais) */
-@media (min-width: 1200px) {
-
 }
