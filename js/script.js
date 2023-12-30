@@ -23,7 +23,7 @@ var kill = 0
 var TelaEspaco = [0, 0]
 //Booleana
 var validaGame = true
-//Funções
+//Funções Anônimas
 var apresentaTela = function(final){
 
 	//Desliga a Tela do Jogo
@@ -45,6 +45,12 @@ var apresentaTela = function(final){
 }
 
 //============================== Funções =========================\\
+/*
+Função: Dificuldade()
+Motivo: Altera o Modo escolhido pelo usuario
+Data: 29/12/2023
+Programador(a): Ighor Drummond
+*/
 function Dificuldade(){
 	//Recebe o o valor Selecionado do Modo
 	Modo = Selecionado.value
@@ -69,6 +75,12 @@ function Dificuldade(){
 	}	
 }
 
+/*
+Função: Jogar()
+Motivo: Inicia o Jogo após ter sido escolhido a Dificuldade
+Data: 29/12/2023
+Programador(a): Ighor Drummond
+*/
 function Jogar(){
 	var interval = null
 
@@ -140,12 +152,24 @@ function Jogar(){
 	}
 }
 
+/*
+Função: tamanhoTela()
+Motivo: reajusta as coordernadas de aparecimento da mosca de acordo com o tamanho da tela
+Data: 29/12/2023
+Programador(a): Ighor Drummond
+*/
 function tamanhoTela(){
 	//Recebe os valores do tamanho da tela atual
 	TelaEspaco[0] = telaJogar.clientWidth
 	TelaEspaco[1] = telaJogar.clientHeight
 }
 
+/*
+Função: sorteiaPosicao(Valor maximo)
+Motivo: sorteia uma posição determinado o valor de 0 até o limite   
+Data: 29/12/2023
+Programador(a): Ighor Drummond
+*/
 function sorteiaPosicao(limite){
 	var ret = 0
 
@@ -153,6 +177,12 @@ function sorteiaPosicao(limite){
 	return ret//Retorna o Valor Sorteado
 }
 
+/*
+Função: morto()
+Motivo: recebe a kill feita pelo jogador
+Data: 29/12/2023
+Programador(a): Ighor Drummond
+*/
 function morto(){
 	//Valida a Morte do Mosquito para não perde coração
 	validaGame = true
@@ -162,6 +192,12 @@ function morto(){
 	mosquito.src = 'img/sangue.png'
 }
 
+/*
+Função: operacao(Escolha da Operacao)
+Motivo: recebe se o jogo será reiniciado ou finalizado
+Data: 29/12/2023
+Programador(a): Ighor Drummond
+*/
 function operacao(opc){
 
 	switch(opc){
@@ -169,7 +205,7 @@ function operacao(opc){
 			window.location.reload()
 			break
 		case 'S':
-			window.close()
+			close()
 			break	
 	}
 }
