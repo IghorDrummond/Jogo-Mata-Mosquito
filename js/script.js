@@ -6,6 +6,8 @@ var telaEntrada = document.getElementById('tela_entrada')
 var mosquito = document.getElementById('mosquito')
 var amostrador = document.getElementById('rodape')
 var textoAmos = document.getElementsByTagName('h5')
+
+
 var telaSecundaria = document.getElementById('tela_secundaria')
 var coracao = document.getElementsByClassName('coracao')
 var tituloImage = document.getElementById('tituloImagem')
@@ -107,7 +109,7 @@ function Jogar(){
 		interval = setInterval(function(){
 			//Adiciona o Tempo para a Tag P
 			textoAmos[0].innerHTML = 'Tempo Restante: ' + Tempo.toString()
-			
+
 			//Verifica se a Mosca foi Morta
 			if(validaGame == false){
 				coracao[kill].src = 'img/coracao_vazio.png'				
@@ -141,11 +143,11 @@ function Jogar(){
 			//Exibe o Mosquito
 			mosquito.style.display = 'block'
 
-			if(Tempo === 0 && kill <= 1){
+			if(Tempo === 0 && kill <= 2){
 				apresentaTela('V')
 				clearInterval(interval)//Saí da Logica
 			}
-			if(Tempo >= 0 && kill == 3){
+			if(Tempo >= 0 && kill === 3){
 				apresentaTela('D');
 				clearInterval(interval)//Saí da Logica
 			}
