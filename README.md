@@ -1,6 +1,6 @@
 # Apresento o Jogo Mata Mosquito
 
-<img src="img/mosca.png"></a><br>
+<img src="img/mosca.png" width="72" height="72"><br>
 
 Hoje trago a vocês o jogo "Mata Mosquito" é um aplicativo web ao qual desenvolvi utilizando HTML, CSS e JavaScript. Seu objetivo é simples: eliminar mosquitos que aparecem na tela dentro de um curto período de tempo. Os jogadores têm um limite de tempo para esmagar os mosquitos antes que o tempo se esgote. Se não conseguirem eliminar todos os mosquitos a tempo, o jogador perde o jogo. O design interativo e a dinâmica rápida tornam o jogo desafiador e divertido, proporcionando uma experiência envolvente aos jogadores.
 
